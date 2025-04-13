@@ -21,7 +21,7 @@ export default function HeroAnimation() {
     setCanvasDimensions()
     window.addEventListener("resize", setCanvasDimensions)
 
-    // Particle class
+    // Particle class con tipado seguro
     class Particle {
       x: number
       y: number
@@ -29,14 +29,17 @@ export default function HeroAnimation() {
       speedX: number
       speedY: number
       color: string
+      private canvas: HTMLCanvasElement
+      private ctx: CanvasRenderingContext2D
 
-      constructor() {
+      constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
+        this.canvas = canvas
+        this.ctx = ctx
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
         this.size = Math.random() * 5 + 1
-        // Reducir significativamente la velocidad de las partículas
-        this.speedX = (Math.random() * 3 - 1.5) * 0.2 // 20% de la velocidad original
-        this.speedY = (Math.random() * 3 - 1.5) * 0.2 // 20% de la velocidad original
+        this.speedX = (Math.random() * 3 - 1.5) * 0.2
+        this.speedY = (Math.random() * 3 - 1.5) * 0.2
         this.color = `hsl(${Math.random() * 60 + 240}, 70%, 50%)`
       }
 
@@ -44,31 +47,32 @@ export default function HeroAnimation() {
         this.x += this.speedX
         this.y += this.speedY
 
-        if (this.x > canvas.width) this.x = 0
-        else if (this.x < 0) this.x = canvas.width
-        if (this.y > canvas.height) this.y = 0
-        else if (this.y < 0) this.y = canvas.height
+        if (this.x > this.canvas.width) this.x = 0
+        else if (this.x < 0) this.x = this.canvas.width
+        if (this.y > this.canvas.height) this.y = 0
+        else if (this.y < 0) this.y = this.canvas.height
       }
 
       draw() {
-        ctx.fillStyle = this.color
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fill()
+        this.ctx.fillStyle = this.color
+        this.ctx.beginPath()
+        this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
+        this.ctx.fill()
       }
     }
 
-    // Create particles
+    // Crear partículas con referencias seguras
     const particlesArray: Particle[] = []
     const numberOfParticles = Math.min(100, Math.floor((canvas.width * canvas.height) / 10000))
 
     for (let i = 0; i < numberOfParticles; i++) {
-      particlesArray.push(new Particle())
+      particlesArray.push(new Particle(canvas, ctx))
     }
 
-    // Animation loop - reducir la frecuencia de actualización
+    // Animation loop con control de null
+    let animationFrameId: number
     let lastTime = 0
-    const frameInterval = 30 // Actualizar cada 30ms en lugar de cada frame (aprox. 16.7ms)
+    const frameInterval = 30
 
     const animate = (timestamp: number) => {
       const deltaTime = timestamp - lastTime
@@ -76,7 +80,7 @@ export default function HeroAnimation() {
       if (deltaTime > frameInterval) {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-        // Draw connections
+        // Dibujar conexiones
         ctx.strokeStyle = "rgba(140, 140, 255, 0.1)"
         ctx.lineWidth = 1
         for (let i = 0; i < particlesArray.length; i++) {
@@ -94,22 +98,24 @@ export default function HeroAnimation() {
           }
         }
 
-        // Update and draw particles
-        for (let i = 0; i < particlesArray.length; i++) {
-          particlesArray[i].update()
-          particlesArray[i].draw()
-        }
+        // Actualizar partículas
+        particlesArray.forEach(particle => {
+          particle.update()
+          particle.draw()
+        })
 
         lastTime = timestamp
       }
 
-      requestAnimationFrame(animate)
+      animationFrameId = requestAnimationFrame(animate)
     }
 
     animate(0)
 
+    // Cleanup seguro
     return () => {
       window.removeEventListener("resize", setCanvasDimensions)
+      cancelAnimationFrame(animationFrameId)
     }
   }, [])
 
