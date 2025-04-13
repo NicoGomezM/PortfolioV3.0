@@ -18,39 +18,42 @@ export default function ContactoPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    const formData = new FormData(e.currentTarget)
-    const data = {
-      nombre: formData.get('nombre'),
-      email: formData.get('email'),
-      asunto: formData.get('asunto'),
-      mensaje: formData.get('mensaje')
-    }
-
+    const form = e.currentTarget
+  
     try {
+      const formData = new FormData(form)
+      const data = {
+        nombre: formData.get('nombre'),
+        email: formData.get('email'),
+        asunto: formData.get('asunto'),
+        mensaje: formData.get('mensaje')
+      }
+  
       const response = await fetch('/api/send-email', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       })
+  
+      const result = await response.json() // <-- Añade esta línea
 
-      if (!response.ok) throw new Error('Error al enviar el mensaje')
-
+      console.log(result) // <-- Añade esta línea para ver la respuesta del servidor
+  
+      if (result.success != true) throw new Error(result.error || 'Error desconocido')
+  
       toast({
-        title: "Mensaje enviado",
+        title: "✅ Mensaje enviado",
         description: "Gracias por contactarme. Te responderé lo antes posible.",
       })
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Ocurrió un error al enviar el mensaje",
+        title: "❌ Error",
+        description: error instanceof Error ? error.message : "Error al enviar el mensaje",
         variant: "destructive"
       })
     } finally {
       setIsSubmitting(false)
-      e.currentTarget.reset()
+      form.reset()
     }
   }
 

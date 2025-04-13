@@ -4,40 +4,36 @@ import { motion } from "framer-motion"
 import { Progress } from "@/components/ui/progress"
 
 const skills = [
-  { name: "HTML & CSS", level: 95 },
-  { name: "JavaScript", level: 90 },
+  { name: "C", level: 90 },
+  { name: "C++", level: 80 }, 
+  { name: "HTML & CSS", level: 80 },
+  { name: "JavaScript", level: 60 },
   { name: "React", level: 85 },
-  { name: "Next.js", level: 80 },
-  { name: "Node.js", level: 75 },
-  { name: "TypeScript", level: 85 },
-  { name: "UI/UX Design", level: 70 },
-  { name: "Tailwind CSS", level: 90 },
+  { name: "Next.js", level: 50 },
+  { name: "Tailwind CSS", level: 60 },
+  { name: "Python", level: 70 },
 ]
 
 const technologies = [
   "React",
   "Next.js",
-  "Vue.js",
-  "Angular",
   "Node.js",
   "Express",
-  "MongoDB",
+  "JSX",
   "PostgreSQL",
-  "Firebase",
+  "mySQL",
+  "Oracle",
+  "Latex",
   "AWS",
   "Docker",
   "Git",
   "GitHub",
-  "Figma",
-  "Adobe XD",
+  "Android",
+  "Windows",
+  "Linux",
+  "Java",
   "Tailwind CSS",
-  "SASS",
-  "Redux",
-  "GraphQL",
-  "REST API",
-  "Jest",
-  "Cypress",
-  "Webpack",
+  "Arduino",
   "Vite",
 ]
 
@@ -123,11 +119,11 @@ export default function HabilidadesPage() {
           <h2 className="text-2xl font-bold mb-6 text-center">Educación y Certificaciones</h2>
           <div className="space-y-8">
             <div className="bg-muted/30 p-6 rounded-lg">
-              <h3 className="text-xl font-bold">Ingeniería en Sistemas Computacionales</h3>
-              <p className="text-muted-foreground">Universidad Tecnológica, 2016-2020</p>
-              <p className="mt-2">Especialización en desarrollo de software y sistemas web.</p>
+              <h3 className="text-xl font-bold">Ingeniería Civil en Informática</h3>
+              <p className="text-muted-foreground">Universidad del Bío-Bío, 2020-Actualidad</p>
+              <p className="mt-2">Grado académico enfocado en formar a un profesional capacitado para comprender la problemática organizacional en el ámbito de la informática y, a partir de ello, plantear y desarrollar soluciones pertinentes. Lo anterior se traduce en la formulación, evaluación, e implementación de proyectos de tecnologías de información y comunicación.</p>
             </div>
-            <div className="bg-muted/30 p-6 rounded-lg">
+            {/* <div className="bg-muted/30 p-6 rounded-lg">
               <h3 className="text-xl font-bold">Certificación en Desarrollo Web Full Stack</h3>
               <p className="text-muted-foreground">Bootcamp Intensivo, 2021</p>
               <p className="mt-2">Formación intensiva en tecnologías web modernas y metodologías ágiles.</p>
@@ -136,7 +132,7 @@ export default function HabilidadesPage() {
               <h3 className="text-xl font-bold">Certificación AWS Developer Associate</h3>
               <p className="text-muted-foreground">Amazon Web Services, 2022</p>
               <p className="mt-2">Especialización en servicios cloud y arquitecturas serverless.</p>
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </div>

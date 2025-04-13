@@ -30,6 +30,7 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
+            <Toaster />
             <Footer />
           </div>
         </ThemeProvider>
@@ -40,3 +41,4 @@ export default function RootLayout({
 
 
 import './globals.css'
+import { Toaster } from "@/components/ui/toaster"
