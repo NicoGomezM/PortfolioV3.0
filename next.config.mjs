@@ -13,22 +13,24 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/portfolio-v3-0', // Cambia esto según tu URL
+  images: {
+    unoptimized: true,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    unoptimized: true,
-  },
-  output: 'export', // ⬅️ Esto convierte tu app en estática
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
-  },
+  }
 };
+
 
 if (userConfig) {
   // ESM imports will have a "default" property
