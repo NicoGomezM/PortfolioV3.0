@@ -1,3 +1,5 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 let userConfig = undefined
 try {
   // try to import ESM first
@@ -14,7 +16,7 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/portfolio-v3-0', // Cambia esto según tu URL
+  basePath: basePath || undefined, // Define basePath solo si existe
   images: {
     unoptimized: true,
   },
