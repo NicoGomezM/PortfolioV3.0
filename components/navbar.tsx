@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ModeToggle } from "@/components/mode-toggle"
-import { cn } from "@/lib/utils"
+import { Button } from "../components/ui/button"
+import { ModeToggle } from "../components/mode-toggle"
+import { cn } from "../lib/utils"
+import { getImagePath } from "../lib/image-utils"
 
 const navItems = [
   { href: "/", label: "Inicio" },
@@ -55,7 +57,14 @@ export default function Navbar() {
             transition={{ duration: 0.5 }}
             className="flex items-center space-x-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500"
           >
-            <img src="/logoNGM.svg" alt="logoNGM" className="size-11" /> {/* Entonces 😄*/}
+            <Image 
+              src={getImagePath("/logoNGMFormal-sinF.png")}
+              alt="logoNGM" 
+              width={44}
+              height={44}
+              className="size-11"
+              priority
+            />
             <span>Nicolás Gómez Morgado</span>
           </motion.div>
           </Link>

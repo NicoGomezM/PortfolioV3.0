@@ -4,8 +4,8 @@ import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Code, Briefcase, User } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import HeroAnimation from "@/components/hero-animation"
+import { Button } from "../components/ui/button"
+import HeroAnimation from "../components/hero-animation"
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
