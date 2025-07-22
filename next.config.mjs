@@ -13,7 +13,8 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Comentamos output: 'export' para permitir API Routes en producción
+  // output: 'export',
   basePath: process.env.NODE_ENV === 'production' ? basePath : '',
   trailingSlash: true,
   images: {
