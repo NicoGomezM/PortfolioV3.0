@@ -1,9 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../../components/ui/card"
-import { Badge } from "../../../components/ui/badge"
-import { Button } from "../../../components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../components/ui/card"
+import { Badge } from "../../components/ui/badge"
+import { Button } from "../../components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,40 +11,40 @@ import Image from "next/image"
 const projects = [
   {
     id: 1,
-    title: "E-commerce Moderno",
-    description: "Plataforma de comercio electrónico con carrito de compras, pagos y gestión de productos.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Next.js", "Tailwind CSS", "Stripe"],
-    demoUrl: "#",
-    repoUrl: "#",
+    title: "Balanceador de equipos",
+    description: "Plataforma enfocada en equilibrar equipos de futbol en encuentros particulares entre amigos con elementos de votación y gestión de partidos.",
+    image: "/teambalancer.png?height=400&width=600",
+    tags: ["Next.js", "Tailwind CSS", "JavaScript", "MongoDB"],
+    demoUrl: "https://teambalanc.netlify.app/",
+    repoUrl: "https://github.com/NicoGomezM/TeamBalancer",
   },
   {
     id: 2,
-    title: "Dashboard Analítico",
-    description: "Panel de control para visualizar y analizar datos empresariales en tiempo real.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "D3.js", "Firebase"],
-    demoUrl: "#",
-    repoUrl: "#",
+    title: "Sorteos personalizados y portables",
+    description: "Sistema enfocado en la realizacion de sorteos personalizados y portables mediante tecnologías de automatización de hosting local a traves de Python.",
+    image: "/sorteosPortable.png?height=400&width=600",
+    tags: ["Next.js", "Tailwind CSS", "Python"],
+    // demoUrl: "#",
+    repoUrl: "https://github.com/NicoGomezM/SorteosPortable",
   },
-  {
-    id: 3,
-    title: "App de Gestión de Tareas",
-    description: "Aplicación para organizar y gestionar tareas personales y de equipo.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Vue.js", "Vuex", "Node.js"],
-    demoUrl: "#",
-    repoUrl: "#",
-  },
-  {
-    id: 4,
-    title: "Blog Personal",
-    description: "Blog con sistema de gestión de contenidos y comentarios.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Gatsby", "GraphQL", "Markdown"],
-    demoUrl: "#",
-    repoUrl: "#",
-  },
+  // {
+  //   id: 3,
+  //   title: "App de Gestión de Tareas",
+  //   description: "Aplicación para organizar y gestionar tareas personales y de equipo.",
+  //   image: "/placeholder.svg?height=400&width=600",
+  //   tags: ["Vue.js", "Vuex", "Node.js"],
+  //   demoUrl: "#",
+  //   repoUrl: "#",
+  // },
+  // {
+  //   id: 4,
+  //   title: "Blog Personal",
+  //   description: "Blog con sistema de gestión de contenidos y comentarios.",
+  //   image: "/placeholder.svg?height=400&width=600",
+  //   tags: ["Gatsby", "GraphQL", "Markdown"],
+  //   demoUrl: "#",
+  //   repoUrl: "#",
+  // },
 ]
 
 export default function ProyectosPage() {
@@ -107,12 +107,14 @@ export default function ProyectosPage() {
                   </div>
                 </CardContent>
                 <CardFooter className="flex justify-between">
-                  <Button asChild variant="outline" size="sm">
-                    <Link href={project.demoUrl}>
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Demo
-                    </Link>
-                  </Button>
+                  {project.demoUrl && (
+                    <Button asChild variant="outline" size="sm">
+                      <Link href={project.demoUrl}>
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Demo
+                      </Link>
+                    </Button>
+                  )}
                   <Button asChild variant="outline" size="sm">
                     <Link href={project.repoUrl}>
                       <Github className="mr-2 h-4 w-4" />

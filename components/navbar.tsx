@@ -13,7 +13,7 @@ import { getImagePath } from "../lib/image-utils"
 
 const navItems = [
   { href: "/", label: "Inicio" },
-  // { href: "/proyectos", label: "Proyectos" },
+  { href: "/proyectos", label: "Proyectos" },
   { href: "/habilidades", label: "Habilidades" },
   { href: "/sobre-mi", label: "Sobre Mí" },
   { href: "/contacto", label: "Contacto" },
