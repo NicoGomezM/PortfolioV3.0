@@ -1,68 +1,137 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../components/ui/card"
-import { Badge } from "../../components/ui/badge"
-import { Button } from "../../components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import ProyectsZoomer from "@/components/proyects_zoomer"
 
+// ==== DATOS: ahora con images: string[] y detalles adicionales ====
 const projects = [
   {
     id: 1,
     title: "Balanceador de equipos",
-    description: "Plataforma enfocada en equilibrar equipos de futbol en encuentros particulares entre amigos con elementos de votación y gestión de partidos.",
-    image: "/teambalancer.png?height=400&width=600",
+    description:
+      "Plataforma enfocada en equilibrar equipos de futbol en encuentros particulares entre amigos con elementos de votación y gestión de partidos.",
+    images: [
+      "/teambalancer/1.png?height=400&width=600",
+      "/teambalancer/2.png?height=400&width=600",
+      "/teambalancer/3.png?height=400&width=600",
+      "/teambalancer/4.png?height=400&width=600",
+    ],
     tags: ["Next.js", "Tailwind CSS", "JavaScript", "MongoDB"],
     demoUrl: "https://teambalanc.netlify.app/",
     repoUrl: "https://github.com/NicoGomezM/TeamBalancer",
+    details: {
+      objetivos: [
+        "Crear equipos equilibrados basados en habilidades",
+        "Sistema de votación para seleccionar jugadores",
+        "Gestión completa de partidos y estadísticas"
+      ],
+      retos: [
+        "Algoritmo de balanceado justo",
+        "Interfaz intuitiva para usuarios no técnicos",
+        "Persistencia de datos con MongoDB"
+      ],
+      resultados: [
+        "Mayor satisfacción en la distribución de jugadores",
+        "Sistema adoptado en varias ocasiones entre amigos",
+      ]
+    }
   },
   {
     id: 2,
     title: "Sorteos personalizados y portables",
-    description: "Sistema enfocado en la realizacion de sorteos personalizados y portables mediante tecnologías de automatización de hosting local a traves de Python.",
-    image: "/sorteosPortable.png?height=400&width=600",
+    description:
+      "Sistema enfocado en la realización de sorteos personalizados y portables mediante tecnologías de automatización de hosting local a través de Python.",
+    images: [
+      "/sorteosPortable/1.png?height=400&width=600",
+    ],
     tags: ["Next.js", "Tailwind CSS", "Python"],
-    // demoUrl: "#",
     repoUrl: "https://github.com/NicoGomezM/SorteosPortable",
+    details: {
+      objetivos: [
+        "Crear sorteos personalizables y justos",
+        "Sistema portable sin dependencias externas",
+        "Interfaz web moderna y responsive"
+      ],
+      retos: [
+        "Hosting local automático con Python",
+        "Generación de números verdaderamente aleatorios",
+        "Compatibilidad multiplataforma"
+      ],
+      resultados: [
+        "Sistema 100% portable y autónomo",
+        "Interfaz intuitiva para cualquier tipo de sorteo",
+        "Implementación exitosa en eventos locales"
+      ]
+    }
   },
-  // {
-  //   id: 3,
-  //   title: "App de Gestión de Tareas",
-  //   description: "Aplicación para organizar y gestionar tareas personales y de equipo.",
-  //   image: "/placeholder.svg?height=400&width=600",
-  //   tags: ["Vue.js", "Vuex", "Node.js"],
-  //   demoUrl: "#",
-  //   repoUrl: "#",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Blog Personal",
-  //   description: "Blog con sistema de gestión de contenidos y comentarios.",
-  //   image: "/placeholder.svg?height=400&width=600",
-  //   tags: ["Gatsby", "GraphQL", "Markdown"],
-  //   demoUrl: "#",
-  //   repoUrl: "#",
-  // },
+  {
+    id: 3,
+    title: "Plataforma de gestión empresarial",
+    description:
+      "Sistema enfocado en la gestión empresarial orientado a optimizar procesos y recursos dentro de la organización.",
+    images: [
+      "/erp/1.png?height=400&width=600",
+      "/erp/2.png?height=400&width=600",
+      "/erp/3.png?height=400&width=600",
+      "/erp/4.png?height=400&width=600",
+      "/erp/5.png?height=400&width=600",
+    ],
+    tags: ["Next.js", "Tailwind CSS", "Vite", "React", "JavaScript", "PostgreSQL", "MySQL", "PHP"],
+    details: {
+      objetivos: [
+        "Centralizar procesos empresariales",
+        "Automatizar tareas repetitivas",
+        "Generar reportes y análisis en tiempo real",
+        "Permitir almacenamiento seguro de datos y archivos empresariales"
+      ],
+      retos: [
+        "Integración con sistemas de hosting",
+        "Escalabilidad para múltiples usuarios",
+        "Seguridad de datos empresariales",
+        "Utilizar tecnologías predefinidas por la empresa y el sistema de hosting para no generar costos adicionales"
+      ],
+      resultados: [
+        "Mejora del en eficiencia operativa",
+        "Reducción de errores manuales en un 85%",
+        "Sistema modular adaptable a diferentes empresas",
+        "Almacenamiento seguro y accesible de datos empresariales",
+        "Disminución de errores dentro del equipo de trabajo"
+      ]
+    }
+  },
+  {
+    id: 4,
+    title: "Sistema de Inscripción inteligente ASIGUBB",
+    description:
+      "Sistema inteligente de inscripción académica que optimiza la asignación de horarios y materias para estudiantes universitarios.",
+    images: [
+      "/asigubb/1.png?height=400&width=600",
+      "/asigubb/2.png?height=400&width=600",
+      "/asigubb/3.png?height=400&width=600",
+      "/asigubb/4.png?height=400&width=600",
+      "/asigubb/5.png?height=400&width=600"
+    ],
+    tags: ["Tailwind CSS", "TypeScript", "PostgreSQL", "Node.js", "Vite" , "React" , "Express" , "MongoDB"],
+    details: {
+      objetivos: [
+        "Automatizar el proceso de inscripción universitaria",
+        "Optimizar asignación de horarios sin conflictos",
+        "Mejorar la experiencia del estudiante"
+      ],
+      retos: [
+        "Algoritmo de optimización de horarios",
+        "Manejo de alta concurrencia durante inscripciones",
+        "Integración con sistema académico existente"
+      ],
+      resultados: [
+        "Eliminación completa de conflictos de horario",
+        "Satisfacción de parte de los usuarios con el sistema",
+      ]
+    }
+  },
 ]
 
 export default function ProyectosPage() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
-
   return (
     <div className="py-20">
       <div className="container px-4 md:px-6">
@@ -76,56 +145,7 @@ export default function ProyectosPage() {
           <p className="mt-4 text-muted-foreground md:text-xl">Una selección de mis trabajos más recientes</p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {projects.map((project) => (
-            <motion.div key={project.id} variants={item}>
-              <Card className="overflow-hidden h-full transition-all hover:shadow-lg">
-                <div className="relative h-48 md:h-64 overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform hover:scale-105 duration-500"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  {project.demoUrl && (
-                    <Button asChild variant="outline" size="sm">
-                      <Link href={project.demoUrl}>
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Demo
-                      </Link>
-                    </Button>
-                  )}
-                  <Button asChild variant="outline" size="sm">
-                    <Link href={project.repoUrl}>
-                      <Github className="mr-2 h-4 w-4" />
-                      Código
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+        <ProyectsZoomer projects={projects} />
       </div>
     </div>
   )

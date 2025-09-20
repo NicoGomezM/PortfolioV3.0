@@ -90,10 +90,10 @@ export default function SobreMiPage() {
               <CardContent className="p-6">
                 <div className="flex flex-col md:flex-row justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-bold">Desarrollador WEB</h3>
+                    <h3 className="text-xl font-bold">Desarrollador Web</h3>
                     <p className="text-primary">Reingenieria Minerals</p>
                   </div>
-                  <p className="text-muted-foreground">Marzo 2025 - Presente</p>
+                  <p className="text-muted-foreground">Marzo 2025 - Octubre 2025</p>
                 </div>
                 <p>
                   Desarrollo de una aplicación web orientada a la optimización del tiempo y la organización del personal, con funcionalidades para la gestión de licitaciones, generación de documentos y seguimiento de órdenes de compra y cotizaciones. 

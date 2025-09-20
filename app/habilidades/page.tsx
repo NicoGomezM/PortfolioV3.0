@@ -35,6 +35,13 @@ const technologies = [
   "Tailwind CSS",
   "Arduino",
   "Vite",
+  "TypeScript",
+  "MongoDB",
+  "PHP",
+  "Figma",
+  "Canva",
+  "Cisco Packet Tracer",
+  "Visual Studio Code",
 ]
 
 export default function HabilidadesPage() {

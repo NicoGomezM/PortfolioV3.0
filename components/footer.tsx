@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Github, Linkedin, Mail, Twitter, MessageCircleMore  } from "lucide-react"
+import { Github, Linkedin, Mail, Twitter, MessageCircleMore, MoveHorizontal} from "lucide-react"
 
 export default function Footer() {
   return (
@@ -25,9 +25,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                {/* <Link href="/proyectos" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/proyectos" className="text-muted-foreground hover:text-foreground transition-colors">
                   Proyectos
-                </Link> */}
+                </Link>
               </li>
               <li>
                 <Link href="/habilidades" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -54,7 +54,7 @@ export default function Footer() {
                 <span>nicogomezmorgado86@gmail.com</span>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
-                <span>Concepción, Chile</span>
+                <span> [ Concepción | Los Ángeles ], Chile</span>
               </li>
             </ul>
             <div className="flex gap-4 mt-4">
@@ -73,9 +73,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t mt-8 pt-6 text-center text-sm text-muted-foreground">
+        {/* <div className="border-t mt-8 pt-6 text-center text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Mi Portfolio. Todos los derechos reservados.</p>
-        </div>
+        </div> */}
       </div>
     </footer>
   )

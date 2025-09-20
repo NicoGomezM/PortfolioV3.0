@@ -4,7 +4,8 @@ import type React from "react"
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle} from "../../components/ui/card"
+import { MoveHorizontal } from 'lucide-react';
 import { Input } from "../../components/ui/input"
 import { Textarea } from "../../components/ui/textarea"
 import { Button } from "../../components/ui/button"
@@ -155,7 +156,7 @@ export default function ContactoPage() {
                   <MapPin className="h-5 w-5 text-primary mt-0.5" />
                   <div>
                     <h3 className="font-medium">Ubicación</h3>
-                    <p className="text-muted-foreground">Concepción, Chile</p>
+                    <p className="text-muted-foreground">Concepción, Chile <MoveHorizontal/> Los Ángeles, Chile</p>
                   </div>
                 </div>
               </CardContent>
@@ -163,25 +164,17 @@ export default function ContactoPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Horario de trabajo</CardTitle>
+                <CardTitle>Horarios de trabajo (Disponibilidad)</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
                 <div className="flex justify-between">
-                    <span>Lunes - Miercoles</span>
-                    <span>Estudiando</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Jueves - Viernes</span>
-                    <span>9:00 - 18:00</span>
+                    <span>Lunes - Viernes</span>
+                    <span>15:00 - 19:00</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Sábado</span>
-                    <span>9:00 - 20:00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Domingo</span>
-                    <span>Liberado</span>
+                    <span>10:00 - 20:00</span>
                   </div>
                 </div>
               </CardContent>
